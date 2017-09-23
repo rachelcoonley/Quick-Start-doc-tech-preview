@@ -19,11 +19,14 @@ In this guide, you'll learn how to get started with Rancher v2.0, including:
 * Adding a Container through the Rancher UI
 
 ### Preparing a Linux Host
-Before you begin, you'll need a single Linux host with Docker v17.06 installed.
+On a single Linux host, you'll need to install a supported version of Docker: 
+* Docker EE v17.06
+* Docker <version>
+* Docker <version>
 
 #### To Prepare a Linux Host:
 1. Prepare a Linux host with 64-bit Ubuntu 16.04, at least 4GB of memory, and a kernel of 3.10+.
-2. Install Docker v16.07 on the host. To install Docker on the server, follow the instructions from [Docker](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/).
+2. Install a supported version of Docker on the host. To install Docker on the server, follow the instructions from [Docker](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/).
 
 ### Launching Rancher Server
 It only takes one command and a few minutes to install and launch Rancher Server. Once installed, you can open a web browser to access the Rancher UI.
@@ -32,30 +35,30 @@ It only takes one command and a few minutes to install and launch Rancher Server
 1. Run this Docker command on your host:
 
 ```bash
-$ sudo docker run -d –restart=unless-stopped -p 8080:8080 rancher/server:stable
+$ sudo docker run -d –restart=unless-stopped -p 8080:8080 rancher/server:<tech-preview>
 ```
->**Note:** This process might take several minutes to complete. For the Rancher v2.0 tech preview, we'll be replacing `stable` with a different string.
+This process might take several minutes to complete.  
 
-2. To access the Rancher UI, go to `http://<SERVER_IP>:8080`, replacing `<SERVER_IP>` with the IP address of your host. The Welcome page displays.
+2. To access the Rancher UI, go to `http://<SERVER_IP>:8080`, replacing `<SERVER_IP>` with the IP address of your host. Rancher automatically deploys and manages Kubernetes, and the UI displays a Welcome page with two options for adding hosts.
 
->**Note:** Initially, Rancher creates a **Default** cluster and environment for you.
+>**Note:** Initially, Rancher creates a **Default** cluster and environment for you. Rancher supports grouping resources into multiples clusters and environments. A **cluster** is a group of physical (or virtual) compute resources. Each environment is tied to one cluster and runs its containers on the cluster's hosts, and you can share a cluster with more than one environment. An **environment** is a namespace where applications, services, and containers are defined. The containers in an environment can communicate with each other over a shared managed network, and you can give different users/groups access to manage the resources of the environment.
 
-3. Rancher automatically deploys and manages Kubernetes. Select one of these options for adding hosts:
-  * **Add Hosts** -- Select this option if you want to manage hosts in Rancher. To add an existing host with Docker installed or a new host through a supported cloud provider, continue to the **Adding Hosts** section below.
-  * **Use existing Kubernetes** -- Select this option if you want the cluster provider to manage hosts outside Rancher. To import an existing Kubernetes installation, continue to the **Importing Kubernetes** section below.
+3. Select one of the options for adding hosts, and then continue to the relevant section below:
+  * **Add Hosts** -- Select this option if you want to manage hosts in Rancher. To add an existing host with Docker installed or a new host through a supported cloud provider, go to **Adding Hosts**.
+  * **Use existing Kubernetes** -- Select this option if you want the cluster provider to manage hosts outside Rancher. To import an existing Kubernetes installation, go to **Importing Kubernetes Clusters**.
 
 ### Adding Hosts
-You can either add a host from a cloud hosting provider that Rancher v2.0 supports, or you can add a custom host. If we do not support your particular cloud provider, don't worry. Simply use the custom host option.
+You can either add a host from a cloud provider that Rancher v2.0 supports, or you can add a custom host. If you don't see your cloud provider in the UI, don't worry. Simply use the custom host option.
 
 If you're adding a custom host, note these requirements:
 * Typically, Rancher automatically detects the IP address to register the host.
-  * If the host is behind a NAT or the same machine that is running the `rancher/server` container, you might need to explicitly specify its IP address by clicking **Show advanced options**.
+  * If the host is behind a NAT or the same machine that is running the `rancher/server` container, you might need to explicitly specify its IP address. To do so, click **Show advanced options**, and then enter the **Registration IP Address**.
 * The host agent initiates a connection to the server, so make sure firewalls or security groups allow it to reach the URL in the command.
 * All hosts in the environment must to allow traffic between each other for cross-host networking
   * IPSec: `500/udp` and `4500/udp`
   * VXLAN: `4789/udp`
 
-#### To Add a Host from a Supported Cloud Provider:
+#### To Add a Host from a Cloud Provider:
 1. On the Add Hosts page, select your cloud hosting provider:
    * Amazon EC2
    * Microsoft Azure
@@ -86,7 +89,9 @@ In Rancher v2.0, you can import an existing, external installation of Kubernetes
 
 ### Adding Containers
 
-After adding at least one host or cluster to your environment, you're ready to create your first container.
+After you add at least one host or cluster to your environment, it might take several minutes for all Rancher system services to launch. To verify the status of your environment, from the **Default** menu, select **System**. If a service is healthy, its state displays in green. 
+
+Once you've verified that all system services are up and running, you're ready to create your first container.
 
 #### To Add a Container:
 1. On the Rancher UI menu, click **Containers**.
