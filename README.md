@@ -21,8 +21,8 @@ In this guide, you'll learn how to get started with Rancher v2.0, including:
 ### Preparing a Linux Host
 On a single Linux host, you'll need to install a supported version of Docker: 
 * Docker EE v17.06
-* Docker <version>
-* Docker <version>
+* Docker [version]
+* Docker [version]
 
 #### To Prepare a Linux Host:
 1. Prepare a Linux host with 64-bit Ubuntu 16.04, at least 4GB of memory, and a kernel of 3.10+.
@@ -59,7 +59,7 @@ If you're adding a custom host, note these requirements:
   * VXLAN: `4789/udp`
 
 #### To Add a Host from a Cloud Provider:
-1. On the Add Hosts page, select your cloud hosting provider:
+1. On the Add Hosts page, select your cloud provider:
    * Amazon EC2
    * Microsoft Azure
    * DigitalOcean
