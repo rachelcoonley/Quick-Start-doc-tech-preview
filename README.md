@@ -19,7 +19,7 @@ In this guide, you'll learn how to get started with Rancher v2.0, including:
 * Adding a Container through the Rancher UI
 
 ### Preparing a Linux Host
-On a single Linux host, you'll need to install a supported version of Docker: 
+Before you begin, you'll need to install a supported version of Docker on a single Linux host. Rancher v2.0 supports: 
 * Docker EE v17.06
 * Docker [version]
 * Docker [version]
