@@ -115,11 +115,11 @@ To help you deploy complex stacks, Rancher offers a catalog of application templ
 1. On the Rancher UI menu, click **Apps**. The Applications page displays.
 2. Click **Launch from Catalog**. The Catalog displays the available application templates.
 3. Search for the template you want to launch, and then click **View Details**.
-4. Complete the required fields, and then click **Launch**. On the Applications page, you'll see Rancher is creating a stack based on your new application, but no services have started. 
+4. Complete the required fields. 
 
 >**Note:** To review the `docker-compose.yml` and `rancher-compose.yml` files used to generate the stacks, click **Preview** before launching the stack.
 
-6. Click the drop-down menu for your application, and then select **Activate Services**. This process might take a few minutes.
+5. Click **Launch**. On the Applications page, you'll see Rancher is creating a stack based on your new application. This process might take a few minutes.
 
 Once its services are up and running, the state of your new stack displays in green. 
 
