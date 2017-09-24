@@ -24,11 +24,11 @@ We'll also cover a couple of advanced topics, such as:
 * Using Advanced Kubernetes Options
 
 ### Preparing a Linux Host
-Before you begin, you'll need to install [Docker v1.12](https://docs.docker.com/cs-engine/1.12/) on a single Linux host.  
+To begin, you'll need to install [Docker v1.12](https://docs.docker.com/cs-engine/1.12/) on a single Linux host.  
 
 #### To Prepare a Linux Host:
 1. Prepare a Linux host with 64-bit Ubuntu 16.04, at least 4GB of memory, and a kernel of 3.10+.
-2. Install a supported version of Docker on the host. To install Docker on the server, follow the instructions from [Docker](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/).
+2. Install Docker v1.12 on the host. To install Docker on the server, follow the instructions from [Docker](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/).
 
 ### Launching Rancher Server
 It only takes one command and a few minutes to install and launch Rancher Server. Once installed, you can open a web browser to access the Rancher UI.
