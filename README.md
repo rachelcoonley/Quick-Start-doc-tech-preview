@@ -24,10 +24,7 @@ We'll also cover a couple of advanced topics, such as:
 * Using Advanced Kubernetes Options
 
 ### Preparing a Linux Host
-Before you begin, you'll need to install a supported version of Docker on a single Linux host. Rancher v2.0 supports: 
-* Docker EE v17.06
-* Docker [version]
-* Docker [version]
+Before you begin, you'll need to install [Docker v1.12](https://docs.docker.com/cs-engine/1.12/) on a single Linux host.  
 
 #### To Prepare a Linux Host:
 1. Prepare a Linux host with 64-bit Ubuntu 16.04, at least 4GB of memory, and a kernel of 3.10+.
