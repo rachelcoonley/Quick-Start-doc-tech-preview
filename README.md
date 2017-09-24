@@ -18,6 +18,11 @@ In this guide, you'll learn how to get started with Rancher v2.0, including:
 * Importing an Existing Kubernetes Cluster
 * Adding a Container through the Rancher UI
 
+We'll also cover a couple of advanced topics, such as:
+
+* Launching Catalog Applications
+* Using Advanced Kubernetes Options
+
 ### Preparing a Linux Host
 Before you begin, you'll need to install a supported version of Docker on a single Linux host. Rancher v2.0 supports: 
 * Docker EE v17.06
@@ -100,4 +105,36 @@ Once you've verified that all system services are up and running, you're ready t
 4. Enter a **Docker Image** hosted on Docker Hub.
 5. Click **Launch**. This process might take a few minutes to complete. Once your container starts running, you can view its status on the Containers page.
 
-Now that you've added hosts and your first container is up and running, you can check out the rest of our new features in Rancher v2.0.
+Now that you've added hosts and your first container is up and running, you can check out the rest of our new features in Rancher v2.0. 
+
+### Launching Catalog Applications
+
+To help you deploy complex stacks, Rancher offers a catalog of application templates. You can search for an existing template, or you can click **Manage** to add your own custom catalog.
+
+#### To Launch a Catalog Application:
+1. On the Rancher UI menu, click **Apps**.
+2. Click **Launch from Catalog**. The Catalog displays the available application templates.
+3. Search for the template you want to launch, and then click **View Details**.
+4. Complete the required fields, and then click **Launch**. 
+
+>**Note:** To review the `docker-compose.yml` and `rancher-compose.yml` files used to generate the stacks, click **Preview** before launching the stack.
+
+5. From the Rancher UI menu, click **Containers**. On the Containers page, you'll see Rancher is creating a stack based on your new template, but no services have started. 
+6. Next to **Creating,** click the Stacks menu, and then select **Activate Services**. This process might take a few minutes.
+
+Once its services are up and running, the state of your new stack displays in green. 
+
+### Using Advanced Kubernetes Options
+
+From the Rancher UI, you can access the native Kubernetes dashboard with one click. 
+
+You can also run `kubectl` from your web browser. The Kubernetes CLI, or `kubectl`, helps you deploy and manage your Kubernetes applications. For more information, or to download `kubectl`, visit the [Kubernetes documenation](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+
+In addition, you can generate a Kubernetes configuration file to use `kubectl` on your desktop. A Kubernetes configuration, or *kubeconfig*, file lets you configure access to one or more clusters.  
+
+#### To Use Advanced Kubernetes Options:
+1. On the Rancher UI menu, click **Containers**.
+2. Select the **Advanced** tab. The following advanced options display:
+   * **Launch Dashboard** -- Select this option to access the native Kubernetes dashboard in a new browser window.
+   * **Launch kubectl** -- Select this option to run `kubectl` commands from your browser using shell. Click **Close** to return to the Rancher UI.
+   * **Download kubeconfig** -- Select this option to generate a *kubeconfig* file to use `kubectl` on your desktop. Copy and paste the code that displays into your `~/.kube/config file`, and then run `kubectl`. Click **Close** to return to the Rancher UI.
