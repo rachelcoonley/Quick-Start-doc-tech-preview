@@ -40,7 +40,7 @@ It only takes one command and a few minutes to install and launch Rancher Server
 1. Run this Docker command on your host:
 
 ```bash
-$ sudo docker run -d –restart=unless-stopped -p 8080:8080 rancher/server:<tech-preview>
+$ sudo docker run -d –restart=unless-stopped -p 8080:8080 rancher/server:v2.0.0-alpha1
 ```
 This process might take several minutes to complete.  
 
